@@ -19,13 +19,60 @@ var visualRecognition = new VisualRecognitionV3({
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+app.get('/api/v1/parameters', (req, res) => {
+  res.status(200).send({
+    Title: 'Movies',
+    FormFields: [
+      {
+        Label: 'Name',
+        Type: 'text',
+        Placeholder: 'The movie name'
+       },
+       {
+        Label: 'Director',
+        Type: 'text',
+        Placeholder: 'The director name'
+       },
+       {
+        Label: 'Income',
+        Type: 'number',
+        Placeholder: 'Total income $'
+       },
+       {
+        Label: 'Date',
+        Type: 'text',
+        Placeholder: 'Release date'
+       },
+       {
+         Label: 'Genre',
+         Type: 'dropdown',
+         DropdownOptions: [
+           {
+             Value: '1',
+             Description: 'Comedy'
+           },
+           {
+             Value: '2',
+             Description: 'Drama'
+           },
+           {
+             Value: '3',
+             Description: 'Horror'
+           }
+         ],
+         Placeholder: 'The movie genre'
+       }
+    ]
+  })
+}); 
+
 app.get('/api/v1/movies', (req, res) => {
   res.status(200).send({
     success: 'true',
     message: 'movies retrieved successfully',
     movies: db
   })
-}); const PORT = 5000;
+});
 
 app.get('/api/v1/movies/:id', (req, res) => { 
   const id = parseInt(req.params.id, 10);
