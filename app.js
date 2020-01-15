@@ -106,7 +106,8 @@ app.post('/api/v1/movies', (req, res) => {
     date: req.body.date,
     income: req.body.income,
     time: req.body.time,
-    gender: req.body.gender
+    gender: req.body.gender,
+    image: req.body.image
   };
   
   db.push(todo);
@@ -143,6 +144,7 @@ app.put('/api/v1/movies/:id', (req, res) => {
     income: req.body.income || movieFound.income,
     time: req.body.time || movieFound.time,
     gender: req.body.gender || movieFound.gender,
+    image: req.body.image || movieFound.image
   };
 
   db.splice(itemIndex, 1, newMovie);
