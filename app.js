@@ -21,48 +21,26 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get('/api/v1/parameters', (req, res) => {
   res.status(200).send({
-    Title: 'Movies',
-    FormFields: [
-      {
-        Label: 'Name',
-        Type: 'text',
-        Placeholder: 'The movie name'
-       },
-       {
-        Label: 'Director',
-        Type: 'text',
-        Placeholder: 'The director name'
-       },
-       {
-        Label: 'Income',
-        Type: 'number',
-        Placeholder: 'Total income $'
-       },
-       {
-        Label: 'Date',
-        Type: 'text',
-        Placeholder: 'Release date'
-       },
-       {
-         Label: 'Genre',
-         Type: 'dropdown',
-         DropdownOptions: [
-           {
-             Value: '1',
-             Description: 'Comedy'
-           },
-           {
-             Value: '2',
-             Description: 'Drama'
-           },
-           {
-             Value: '3',
-             Description: 'Horror'
-           }
-         ],
-         Placeholder: 'The movie genre'
-       }
-    ]
+    Title:'Movies',
+    Description:'IBM movies',
+    FormFields:{
+        Type:'dropdown',
+        DropdownOptions:[
+            {
+                Value:'1',
+                Description:'Comedy'
+            },
+            {
+                Value:'2',
+                Description:'Drama'
+            },
+            {
+                Value:'3',
+                Description:'Horror'
+            }
+        ],
+        Placeholder:'The movie genre'
+    }
   })
 }); 
 
